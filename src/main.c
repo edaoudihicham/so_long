@@ -18,9 +18,9 @@ char *tmp_map[] =
 
 typedef struct s_map
 {
-	int width;
-	int height;
-	char **map;
+	int width; 
+	int height; 
+	char **map; 
 } t_map;
 
 typedef struct s_player
@@ -33,7 +33,7 @@ typedef struct s_player
 typedef struct s_window
 {
 	void	*mlx;
-	void	*win;
+	void	*window;
 }	t_window;
 
 typedef struct s_game
@@ -48,16 +48,16 @@ t_game game;
 void	init_window()
 {
 	game.window_info.mlx = mlx_init();
-	game.window_info.win = mlx_new_window(game.window_info.mlx, game.map_info.width * TILESIZE, game.map_info.height * TILESIZE, "hicham");
+	game.window_info.window = mlx_new_window(game.window_info.mlx, game.map_info.width * TILESIZE, game.map_info.height * TILESIZE, "Hdaoudi");
 }
 
 void	init_map()
 {
 	// todo: load map from a file
 	// game.map_info = load_map(path);
-	game.map_info.map = tmp_map;
-	game.map_info.height = 9;
-	game.map_info.width = 19;
+	game.map_info.map = tmp_map; // getnextline **arr
+	game.map_info.height = 9; // **arr size
+	game.map_info.width = 19; // *arr[0] len
 }
 
 void	init_game()
