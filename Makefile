@@ -1,13 +1,11 @@
 NAME = so_long
-
+FT_PRINTF = ft_printf/libftprintf.a
 CC= cc 
 CFLAGS= -Wall -Wextra -Werror
 
-SRC = printf/ft_printf.c printf/ft_putnbr.c \
-	printf/ft_putptr.c printf/ft_printf.c printf/ft_putchar.c\
-	printf/ft_putnbr_hex.c printf/ft_putstr.c printf/ft_putunsigned.c \
-	getnextline/get_next_line_bonus.c  getnextline/get_next_line.c \
-	getnextline/get_next_line_utils_bonus.c getnextline/get_next_line_utils.c \
+LIBXFLAGS := -lmlx -lXext -lX11
+
+SRC = get_next_line.c get_next_line_utils.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -17,12 +15,15 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $^ -o $@
+	make -C ft_printf/
+	$(CC) $(CFLAGS) $(LIBXFLAGS) $(OBJ) $(FT_PRINTF) -o $(NAME)
 
 clean:
+	make -C ft_printf clean
 	rm -f $(OBJ)
 
 fclean: clean
+	make -C ft_printf fclean
 	rm -f $(NAME)
 
 re: fclean all

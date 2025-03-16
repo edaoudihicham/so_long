@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putunsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:13:53 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/08 18:23:30 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2024/11/19 16:31:36 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_putunsigned(unsigned int n)
 		count += ft_putunsigned(n / 10);
 		count += ft_putunsigned(n % 10);
 	}
-	else if (n > 0 && n <= 9)
+	else if (n >= 0 && n <= 9)
 		count += ft_putchar(n + '0');
 	return (count);
 }
