@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:29 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/17 13:15:16 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/17 23:44:07 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	*create_img(t_data *data, char *path)
 }
 
 void	init_imgs(t_data *data)
+{
 	data->images.coin = create_img(data,
 			"textures/coin.xpm");
 	data->images.wall = create_img(data,
