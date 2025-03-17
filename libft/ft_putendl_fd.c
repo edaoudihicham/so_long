@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edaoudihicham <edaoudihicham@student.42    +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 02:06:53 by edaoudihich       #+#    #+#             */
-/*   Updated: 2025/03/17 02:07:42 by edaoudihich      ###   ########.fr       */
+/*   Created: 2024/11/03 23:04:27 by hdaoudi           #+#    #+#             */
+/*   Updated: 2024/11/08 02:13:03 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#endif
+void	ft_putendl_fd(char *s, int fd)
+{
+	if (fd < 0 || s == NULL)
+		return ;
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
+}

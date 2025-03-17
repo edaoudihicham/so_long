@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edaoudihicham <edaoudihicham@student.42    +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 02:06:53 by edaoudihich       #+#    #+#             */
-/*   Updated: 2025/03/17 02:07:42 by edaoudihich      ###   ########.fr       */
+/*   Created: 2024/11/05 16:19:36 by hdaoudi           #+#    #+#             */
+/*   Updated: 2024/11/10 18:28:06 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*node;
 
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#endif
+	node = malloc(sizeof(t_list));
+	if (node == NULL)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
+}
