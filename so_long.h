@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2025/03/17 13:02:09 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/18 00:17:33 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "libft/libft.h"
 # include <X11/keysym.h>
 # include <X11/X.h>
-
+# include <stdio.h>
 enum e_keys
 {
 	ESC_KEY = 65307,

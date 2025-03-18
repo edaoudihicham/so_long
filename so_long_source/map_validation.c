@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_check.c                                        :+:      :+:    :+:   */
+/*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:38 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/17 12:42:41 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/18 00:28:18 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	check_chars(t_map map)
 			if (c != '0' && c != '1' && c != 'C' && c != 'P' && c != 'E')
 			{
 				free_map(map);
-				error("Invalid map, invalid char exists.");
+				error("Invalid map, alien char exists.");
 			}
 			x++;
 		}
@@ -47,7 +47,7 @@ static void	check_rectangle(t_map map)
 		if (map.colums != (int)ft_strlen(map.map[i]))
 		{
 			free_map(map);
-			error("Inalid map, not a perfect rectangle.");
+			error("Inalid map, not a rectangle.");
 		}
 		i++;
 	}
@@ -104,7 +104,7 @@ static void	check_flags(t_map map)
 	if ((coin * player * exit) != 1)
 	{
 		free_map(map);
-		error("Invalid map. P=1Max, C=1Min, E=1Max.");
+		error("Invalid map. Only one P, at least one C, and only one E allowed.");
 	}
 }
 
@@ -118,6 +118,6 @@ void	is_valid_map(t_map map)
 	if (map.rows > 32 || map.colums > 60)
 	{
 		free_map(map);
-		error("Invalid map, too big for screen.");
+		error("Invalid map, too big for screen res.");
 	}
 }

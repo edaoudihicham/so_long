@@ -22,7 +22,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	make -C ./ft_printf/ --silent
 	make -C ./libft/ --silent
-	$(CC) $(CFLAGS) $(OBJ) $(FT_PRINTF) $(LIBFT) -o $(NAME) $(LIBXFLAGS) 
+	$(CC) $(CFLAGS) $(OBJ) $(FT_PRINTF) $(LIBFT) -o $(NAME) $(LIBXFLAGS) -fsanitize=address
 
 clean:
 	make -C ./ft_printf/ clean --silent
