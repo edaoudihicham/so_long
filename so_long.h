@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2025/03/18 00:17:33 by hdaoudi          ###   ########.fr       */
+/*   Created: 2024/10/22 10:31:50 by hdaoudi            #+#    #+#             */
+/*   Updated: 2025/03/19 03:12:39 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_imgs
 	void	*player;
 	void	*coin;
 	void	*wall;
-	void	*grass;
+	void	*floor;
 	void	*exit;
 }	t_imgs;
 

@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:29 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/17 23:44:07 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/19 03:14:50 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	draw_tail(char taile, t_data *data, int x, int y)
 	else if (taile == '1')
 		mlx_put_image_to_window(data->mlx, data->win, data->images.wall, x, y);
 	else if (taile == '0')
-		mlx_put_image_to_window(data->mlx, data->win, data->images.grass, x, y);
+		mlx_put_image_to_window(data->mlx, data->win, data->images.floor, x, y);
 	else if (taile == 'P')
 	{
 		data->p_x = x / 64;
@@ -103,8 +103,8 @@ void	init_imgs(t_data *data)
 			"textures/wall.xpm");
 	data->images.player = create_img(data,
 			"textures/player.xpm");
-	data->images.grass = create_img(data,
-			"textures/grass.xpm");
+	data->images.floor = create_img(data,
+			"textures/floor.xpm");
 	data->images.exit = create_img(data,
 			"textures/exit_closed.xpm");
 }

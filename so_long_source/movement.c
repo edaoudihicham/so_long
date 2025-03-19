@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_player.c                                      :+:      :+:    :+:   */
+/*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:47 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/17 12:42:49 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/19 03:15:21 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	move_right(t_data *data)
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
 		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.grass,
+	mlx_put_image_to_window(data->mlx, data->win, data->images.floor,
 		(data->p_x - 1) * 64, data->p_y * 64);
 }
 
@@ -42,7 +42,7 @@ void	move_left(t_data *data)
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
 		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.grass,
+	mlx_put_image_to_window(data->mlx, data->win, data->images.floor,
 		(data->p_x + 1) * 64, data->p_y * 64);
 }
 
@@ -59,7 +59,7 @@ void	move_up(t_data *data)
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
 		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.grass,
+	mlx_put_image_to_window(data->mlx, data->win, data->images.floor,
 		data->p_x * 64, (data->p_y + 1) * 64);
 }
 
@@ -76,7 +76,7 @@ void	move_down(t_data *data)
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
 		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.grass,
+	mlx_put_image_to_window(data->mlx, data->win, data->images.floor,
 		data->p_x * 64, (data->p_y - 1) * 64);
 }
 

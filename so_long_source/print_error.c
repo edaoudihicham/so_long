@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:41:54 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/17 12:41:58 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/19 03:14:14 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_imgs(t_data *data)
 {
 	mlx_destroy_image(data->mlx, data->images.coin);
 	mlx_destroy_image(data->mlx, data->images.exit);
-	mlx_destroy_image(data->mlx, data->images.grass);
+	mlx_destroy_image(data->mlx, data->images.floor);
 	mlx_destroy_image(data->mlx, data->images.player);
 	mlx_destroy_image(data->mlx, data->images.wall);
 }
