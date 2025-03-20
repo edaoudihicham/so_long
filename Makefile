@@ -5,7 +5,7 @@ LIBFT = ./libft/libft.a
 CC= cc 
 CFLAGS= -Wall -Wextra -Werror
 
-LIBXFLAGS := -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz #-lmlx -lXext -lX11
+LIBXFLAGS := -lmlx -lXext -lX11
 
 SRC = gnl/get_next_line.c gnl/get_next_line_utils.c \
 		so_long_source/so_long.c 	so_long_source/print_error.c so_long_source/parsing.c  \
