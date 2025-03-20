@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 01:52:49 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 06:14:12 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ typedef struct s_map
 typedef struct s_data
 {
 	void	*mlx;
-	void	*win;
-	t_imgs	images;
+	void	*window;
+	t_imgs	imgs;
 	t_map	map;
-	int		p_x;
-	int		p_y;
+	int		player_x;
+	int		player_y;
 	int		moves_count;
 	int		coin_count;
 	int		coin_collected;
@@ -67,14 +67,14 @@ typedef struct s_data
 void		free_map(t_map map);
 t_map		load_map(char *filename);
 void		check_if_map_is_vaid(t_map map);
-void		is_map_beatable(t_map map);
+void		is_map_playable(t_map map);
 void		error(char *msg);
 
 int			close_game(t_data *data);
 void		init_window(t_data *data);
-void		draw_tail(char taile, t_data *data, int x, int y);
-void		draw_tails(t_data *data);
-void		*create_img(t_data *data, char *path);
+void		draw_tile(char tile, t_data *data, int x, int y);
+void		draw_tiles(t_data *data);
+void		*create_image(t_data *data, char *path);
 void		init_imgs(t_data *data);
 
 void		move_right(t_data *data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:43:05 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 01:54:14 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 06:16:34 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ void	run_game(t_data data)
 {
 	init_window(&data);
 	init_imgs(&data);
-	draw_tails(&data);
-	mlx_hook(data.win, KeyPress, KeyPressMask, handle_keys, &data);
-	mlx_hook(data.win, DestroyNotify, StructureNotifyMask, close_game, &data);
+	draw_tiles(&data);
+	mlx_hook(data.window, KeyPress, KeyPressMask, handle_keys, &data);
+	mlx_hook(data.window, DestroyNotify, StructureNotifyMask, close_game,
+		&data);
 	mlx_loop(data.mlx);
 }
 

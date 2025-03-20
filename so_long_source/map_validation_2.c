@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:41:38 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/17 12:46:24 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 06:41:46 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	**tmp_map(t_map map)
 	return (tmp);
 }
 
-static void	free_tmp(char **tmp)
+static void	free_arr(char **tmp)
 {
 	int	i;
 
@@ -71,7 +71,7 @@ static int	check_char(char **tmp, char c)
 	return (0);
 }
 
-void	is_map_beatable(t_map map)
+void	is_map_playable(t_map map)
 {
 	char	**visited;
 	int		x;
@@ -97,5 +97,5 @@ void	is_map_beatable(t_map map)
 		free_map(map);
 		error("Error: Invalid map, exit unreachable or coins uncollectible.\n");
 	}
-	free_tmp(visited);
+	free_arr(visited);
 }

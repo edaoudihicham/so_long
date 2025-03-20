@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:47 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 01:34:45 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 06:16:19 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,70 +14,70 @@
 
 void	move_right(t_data *data)
 {
-	if (data->map.map[data->p_y][data->p_x + 1] == '1')
+	if (data->map.map[data->player_y][data->player_x + 1] == '1')
 		return ;
-	data->p_x++;
+	data->player_x++;
 	data->moves_count++;
-	if (data->map.map[data->p_y][data->p_x] == 'C')
+	if (data->map.map[data->player_y][data->player_x] == 'C')
 	{
 		data->coin_collected++;
-		data->map.map[data->p_y][data->p_x] = '0';
+		data->map.map[data->player_y][data->player_x] = '0';
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
-		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.floor,
-		(data->p_x - 1) * 64, data->p_y * 64);
+	mlx_put_image_to_window(data->mlx, data->window, data->imgs.player,
+		data->player_x * 64, data->player_y * 64);
+	mlx_put_image_to_window(data->mlx, data->window, data->imgs.floor,
+		(data->player_x - 1) * 64, data->player_y * 64);
 }
 
 void	move_left(t_data *data)
 {
-	if (data->map.map[data->p_y][data->p_x - 1] == '1')
+	if (data->map.map[data->player_y][data->player_x - 1] == '1')
 		return ;
-	data->p_x--;
+	data->player_x--;
 	data->moves_count++;
-	if (data->map.map[data->p_y][data->p_x] == 'C')
+	if (data->map.map[data->player_y][data->player_x] == 'C')
 	{
 		data->coin_collected++;
-		data->map.map[data->p_y][data->p_x] = '0';
+		data->map.map[data->player_y][data->player_x] = '0';
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
-		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.floor,
-		(data->p_x + 1) * 64, data->p_y * 64);
+	mlx_put_image_to_window(data->mlx, data->window, data->imgs.player,
+		data->player_x * 64, data->player_y * 64);
+	mlx_put_image_to_window(data->mlx, data->window, data->imgs.floor,
+		(data->player_x + 1) * 64, data->player_y * 64);
 }
 
 void	move_up(t_data *data)
 {
-	if (data->map.map[data->p_y - 1][data->p_x] == '1')
+	if (data->map.map[data->player_y - 1][data->player_x] == '1')
 		return ;
-	data->p_y--;
+	data->player_y--;
 	data->moves_count++;
-	if (data->map.map[data->p_y][data->p_x] == 'C')
+	if (data->map.map[data->player_y][data->player_x] == 'C')
 	{
 		data->coin_collected++;
-		data->map.map[data->p_y][data->p_x] = '0';
+		data->map.map[data->player_y][data->player_x] = '0';
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
-		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.floor,
-		data->p_x * 64, (data->p_y + 1) * 64);
+	mlx_put_image_to_window(data->mlx, data->window, data->imgs.player,
+		data->player_x * 64, data->player_y * 64);
+	mlx_put_image_to_window(data->mlx, data->window, data->imgs.floor,
+		data->player_x * 64, (data->player_y + 1) * 64);
 }
 
 void	move_down(t_data *data)
 {
-	if (data->map.map[data->p_y + 1][data->p_x] == '1')
+	if (data->map.map[data->player_y + 1][data->player_x] == '1')
 		return ;
-	data->p_y++;
+	data->player_y++;
 	data->moves_count++;
-	if (data->map.map[data->p_y][data->p_x] == 'C')
+	if (data->map.map[data->player_y][data->player_x] == 'C')
 	{
 		data->coin_collected++;
-		data->map.map[data->p_y][data->p_x] = '0';
+		data->map.map[data->player_y][data->player_x] = '0';
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->images.player,
-		data->p_x * 64, data->p_y * 64);
-	mlx_put_image_to_window(data->mlx, data->win, data->images.floor,
-		data->p_x * 64, (data->p_y - 1) * 64);
+	mlx_put_image_to_window(data->mlx, data->window, data->imgs.player,
+		data->player_x * 64, data->player_y * 64);
+	mlx_put_image_to_window(data->mlx, data->window, data->imgs.floor,
+		data->player_x * 64, (data->player_y - 1) * 64);
 }
 
 int	handle_keys(int key, t_data *data)
@@ -92,10 +92,12 @@ int	handle_keys(int key, t_data *data)
 		move_up(data);
 	else if (key == DOWN_KEY || key == S_KEY)
 		move_down(data);
-	if (data->p_x == data->map.exit_x && data->p_y == data->map.exit_y)
+	if (data->player_x == data->map.exit_x && data->player_y
+		== data->map.exit_y)
 		check_win(data);
-	if (data->p_x != data->map.exit_x || data->p_y != data->map.exit_y)
-		mlx_put_image_to_window(data->mlx, data->win, data->images.exit,
+	if (data->player_x != data->map.exit_x || data->player_y
+		!= data->map.exit_y)
+		mlx_put_image_to_window(data->mlx, data->window, data->imgs.exit,
 			data->map.exit_x * 64, data->map.exit_y * 64);
 	ft_putstr_fd("\nCount: ", 1);
 	ft_putnbr_fd(data->moves_count, 1);

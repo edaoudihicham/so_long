@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:29 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 01:01:02 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 06:15:14 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	init_window(t_data *data)
 		free_map(data->map);
 		error("couldn't connect to x server.");
 	}
-	data->win = mlx_new_window(data->mlx,
+	data->window = mlx_new_window(data->mlx,
 			data->map.colums * 64,
 			data->map.rows * 64, "so_long");
-	if (!data->win)
+	if (!data->window)
 	{
 		free_map(data->map);
 		free(data->mlx);
@@ -31,33 +31,34 @@ void	init_window(t_data *data)
 	}
 }
 
-void	draw_tail(char taile, t_data *data, int x, int y)
+void	draw_tile(char tile, t_data *data, int x, int y)
 {
-	if (taile == 'C')
+	if (tile == 'C')
 	{
 		data->coin_count++;
-		mlx_put_image_to_window(data->mlx, data->win, data->images.coin, x, y);
+		mlx_put_image_to_window(data->mlx, data->window, data->imgs.coin, x, y);
 	}
-	else if (taile == '1')
-		mlx_put_image_to_window(data->mlx, data->win, data->images.wall, x, y);
-	else if (taile == '0')
-		mlx_put_image_to_window(data->mlx, data->win, data->images.floor, x, y);
-	else if (taile == 'P')
+	else if (tile == '1')
+		mlx_put_image_to_window(data->mlx, data->window, data->imgs.wall, x, y);
+	else if (tile == '0')
+		mlx_put_image_to_window(data->mlx, data->window, data->imgs.floor, x, y
+			);
+	else if (tile == 'P')
 	{
-		data->p_x = x / 64;
-		data->p_y = y / 64;
-		mlx_put_image_to_window(data->mlx, data->win,
-			data->images.player, x, y);
+		data->player_x = x / 64;
+		data->player_y = y / 64;
+		mlx_put_image_to_window(data->mlx, data->window,
+			data->imgs.player, x, y);
 	}
-	else if (taile == 'E')
+	else if (tile == 'E')
 	{
 		data->map.exit_x = x / 64;
 		data->map.exit_y = y / 64;
-		mlx_put_image_to_window(data->mlx, data->win, data->images.exit, x, y);
+		mlx_put_image_to_window(data->mlx, data->window, data->imgs.exit, x, y);
 	}
 }
 
-void	draw_tails(t_data *data)
+void	draw_tiles(t_data *data)
 {
 	int	x;
 	int	y;
@@ -72,14 +73,14 @@ void	draw_tails(t_data *data)
 		x = 0;
 		while (data->map.map[y][x])
 		{
-			draw_tail(data->map.map[y][x], data, x * 64, y * 64);
+			draw_tile(data->map.map[y][x], data, x * 64, y * 64);
 			x++;
 		}
 		y++;
 	}
 }
 
-void	*create_img(t_data *data, char *path)
+void	*create_image(t_data *data, char *path)
 {
 	int		x;
 	int		y;
@@ -97,14 +98,14 @@ void	*create_img(t_data *data, char *path)
 
 void	init_imgs(t_data *data)
 {
-	data->images.coin = create_img(data,
+	data->imgs.coin = create_image(data,
 			"textures/coin.xpm");
-	data->images.wall = create_img(data,
+	data->imgs.wall = create_image(data,
 			"textures/wall.xpm");
-	data->images.player = create_img(data,
+	data->imgs.player = create_image(data,
 			"textures/player.xpm");
-	data->images.floor = create_img(data,
+	data->imgs.floor = create_image(data,
 			"textures/floor.xpm");
-	data->images.exit = create_img(data,
+	data->imgs.exit = create_image(data,
 			"textures/exit.xpm");
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:38 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 01:49:29 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 06:49:52 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static void	check_chars(t_map map)
+static void	check_for_alien_chars(t_map map)
 {
 	int		x;
 	int		y;
@@ -110,14 +110,14 @@ static void	check_flags(t_map map)
 
 void	check_if_map_is_vaid(t_map map)
 {
-	check_chars(map);
+	check_for_alien_chars(map);
 	check_rectangle(map);
 	check_walls(map);
 	check_flags(map);
-	is_map_beatable(map);
+	is_map_playable(map);
 	if (map.rows > 32 || map.colums > 60)
 	{
 		free_map(map);
-		error("Invalid map, too big for screen res.");
+		error("Map is too big.");
 	}
 }
