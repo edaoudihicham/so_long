@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:43:05 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/17 12:43:07 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 01:02:15 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	check_win(t_data *data)
 {
 	if (data->coin_collected == data->coin_count)
 	{
-		ft_putstr_fd("\n----->you won!\n", 1);
+		ft_putstr_fd("\nYou Won!\n", 1);
 		close_game(data);
 	}
 	ft_putstr_fd("\nYou have to collect all the coins first\n", 1);

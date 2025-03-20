@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:56 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/18 00:23:11 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 00:59:45 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ static char	*load_map_from_file(int fd)
 	{
 		new_line = ft_strjoin(line, tmp);
 		if (!new_line)
-			error("something wrong happened failed to join.");
+			error("something went wrong.");
 		free(line);
 		line = new_line;
 		if (tmp[0] == '\n')
 		{
 			free(tmp);
 			free(new_line);
-			get_next_line(-2);
+			get_next_line(-1);
 			error("Invalid map, Empty lines exist.");
 		}
 		free(tmp);
@@ -95,5 +95,5 @@ void	free_map(t_map map)
 	while (map.map[y])
 		free(map.map[y++]);
 	free(map.map);
-	get_next_line(-2);
+	get_next_line(-1);
 }

@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:29 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/19 03:14:50 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 01:01:02 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,5 @@ void	init_imgs(t_data *data)
 	data->images.floor = create_img(data,
 			"textures/floor.xpm");
 	data->images.exit = create_img(data,
-			"textures/exit_closed.xpm");
+			"textures/exit.xpm");
 }

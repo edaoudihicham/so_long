@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:47 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/19 03:15:21 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 01:02:51 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	handl_input(int key, t_data *data)
 	if (data->p_x != data->map.exit_x || data->p_y != data->map.exit_y)
 		mlx_put_image_to_window(data->mlx, data->win, data->images.exit,
 			data->map.exit_x * 64, data->map.exit_y * 64);
-	ft_putstr_fd("\ncout: ", 1);
+	ft_putstr_fd("\nCount: ", 1);
 	ft_putnbr_fd(data->moves_count, 1);
 	return (0);
 }

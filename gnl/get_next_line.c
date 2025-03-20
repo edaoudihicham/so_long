@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:53:11 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/08 17:43:53 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 00:53:51 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,24 +56,28 @@ char	*ft_substr_gnl(char const *s, unsigned int start, size_t len)
 	return (ptr);
 }
 
-char	*trim_leftovers(char *leftovers)
+char	*trim_leftovers(char **static_var)
 {
 	char	*new_leftovers;
 	size_t	newline_position;
+	char	*leftovers;
 
+	leftovers = *static_var;
+	new_leftovers = NULL;
 	if (leftovers == NULL)
-		return (free(leftovers), leftovers = NULL, NULL);
+		return (free(leftovers), *static_var = NULL, NULL);
 	newline_position = ft_strchrlen_gnl(leftovers, '\n');
 	if (ft_strchr_gnl(leftovers, '\n'))
 	{
 		new_leftovers = ft_substr_gnl(leftovers, newline_position + 1,
 				ft_strlen_gnl(leftovers) - (newline_position + 1));
 		if (new_leftovers == NULL)
-			return (free(leftovers), NULL);
+			return (free(leftovers), *static_var = NULL, NULL);
 		free(leftovers);
+		*static_var = NULL;
 		return (new_leftovers);
 	}
-	return (free(leftovers), NULL);
+	return (free(leftovers), *static_var = NULL, NULL);
 }
 
 char	*read_to_leftovers(int fd, char *leftovers)
@@ -107,7 +111,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (free(leftovers), leftovers = NULL, NULL);
 	leftovers = read_to_leftovers(fd, leftovers);
 	if (leftovers == NULL || leftovers[0] == '\0')
 		return (free(leftovers), leftovers = NULL, NULL);
@@ -118,6 +122,6 @@ char	*get_next_line(int fd)
 		line = ft_strdup_gnl(leftovers);
 	if (line == NULL)
 		return (free(leftovers), leftovers = NULL, NULL);
-	leftovers = trim_leftovers(leftovers);
+	leftovers = trim_leftovers(&leftovers);
 	return (line);
 }

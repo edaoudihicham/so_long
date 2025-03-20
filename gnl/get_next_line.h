@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edaoudihicham <edaoudihicham@student.42    +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:53:01 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/02/06 18:23:42 by edaoudihich      ###   ########.fr       */
+/*   Updated: 2025/02/25 14:56:22 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	*ft_memcpy_gnl(void *dst, const void *src, size_t n);
 char	*ft_strdup_gnl(const char *s1);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 char	*ft_substr_gnl(char const *s, unsigned int start, size_t len);
-char	*trim_leftovers(char *leftovers);
 char	*read_to_leftovers(int fd, char *leftovers);
 char	*get_next_line(int fd);
 #endif
