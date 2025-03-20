@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 06:14:12 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 20:20:48 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./gnl/get_next_line.h"
-# include "libft/libft.h"
+# include "gnl/get_next_line.h"
+# include "libft.h"
 # include <fcntl.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <mlx.h>
+# include <stdio.h>
 
 enum		e_keys
 {

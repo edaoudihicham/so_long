@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:43:05 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 06:16:34 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 21:32:20 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
+	ft_bzero(&data, sizeof(t_data));
 	if (ac != 2)
-		error("usage: ./so_long <MAP.ber>");
+		return (error("usage: ./so_long <MAP.ber>"), 1);
 	data.map = load_map(av[1]);
 	check_if_map_is_vaid(data.map);
 	run_game(data);

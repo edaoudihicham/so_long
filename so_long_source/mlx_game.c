@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:29 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 06:15:14 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 20:58:17 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_window(t_data *data)
 	{
 		free_map(data->map);
 		error("couldn't connect to x server.");
+		exit(EXIT_FAILURE);
 	}
 	data->window = mlx_new_window(data->mlx,
 			data->map.colums * 64,
@@ -28,6 +29,7 @@ void	init_window(t_data *data)
 		free_map(data->map);
 		free(data->mlx);
 		error("couldn't create a new window");
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -89,9 +91,8 @@ void	*create_image(t_data *data, char *path)
 	img = mlx_xpm_file_to_image(data->mlx, path, &x, &y);
 	if (!img)
 	{
-		img = mlx_new_image(data->mlx, 64, 64);
-		ft_putendl_fd("\n\n-->Error: Some assets are missing!", 2);
-		return (img);
+		error("Some images are missing!");
+		close_game(data);
 	}
 	return (img);
 }

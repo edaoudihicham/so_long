@@ -1,9 +1,8 @@
 NAME = so_long
-FT_PRINTF = ./ft_printf/libftprintf.a
 LIBFT = ./libft/libft.a
 
 CC= cc 
-CFLAGS= -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror -Ilibft 
 
 LIBXFLAGS := -lmlx -lXext -lX11
 
@@ -20,17 +19,14 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	make -C ./ft_printf/ --silent
 	make -C ./libft/ --silent
-	$(CC) $(CFLAGS) $(OBJ) $(FT_PRINTF) $(LIBFT) -o $(NAME) $(LIBXFLAGS)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) $(LIBXFLAGS)
 
 clean:
-	make -C ./ft_printf/ clean --silent
 	make -C ./libft/ clean --silent
 	rm -f $(OBJ)
 
 fclean: clean
-	make -C ./ft_printf/ fclean --silent
 	make -C ./libft/ fclean --silent
 	rm -f $(NAME)
 

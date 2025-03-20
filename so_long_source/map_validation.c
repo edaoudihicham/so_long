@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:38 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 06:49:52 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 21:55:23 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	check_for_alien_chars(t_map map)
 			{
 				free_map(map);
 				error("Invalid map, alien char exists.");
+				exit(EXIT_FAILURE);
 			}
 			x++;
 		}
@@ -48,6 +49,7 @@ static void	check_rectangle(t_map map)
 		{
 			free_map(map);
 			error("Inalid map, not a rectangle.");
+			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
@@ -64,6 +66,7 @@ static void	check_walls(t_map map)
 		{
 			free_map(map);
 			error("Ivalid map, check your walls.");
+			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
@@ -74,6 +77,7 @@ static void	check_walls(t_map map)
 		{
 			free_map(map);
 			error("Ivalid map, check your walls.");
+			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
@@ -83,10 +87,10 @@ static void	check_flags(t_map map)
 {
 	static int	coin;
 	int			player;
-	int			exit;
+	int			door;
 	int			x;
 
-	exit = 0;
+	door = 0;
 	player = 0;
 	while (--map.rows)
 	{
@@ -98,13 +102,13 @@ static void	check_flags(t_map map)
 			else if (*(map.map[map.rows] + x - 1) == 'P')
 				player++;
 			else if (*(map.map[map.rows] + x - 1) == 'E')
-				exit++;
+				door++;
 		}
 	}
-	if ((coin * player * exit) != 1)
+	if ((coin * player * door) != 1)
 	{
-		free_map(map);
 		error("Invalid map: 1P, min 1C, and 1E allowed.");
+		return (free_map(map), exit(1));
 	}
 }
 
@@ -119,5 +123,6 @@ void	check_if_map_is_vaid(t_map map)
 	{
 		free_map(map);
 		error("Map is too big.");
+		exit(EXIT_FAILURE);
 	}
 }

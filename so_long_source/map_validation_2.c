@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:41:38 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 06:41:46 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 21:56:25 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ void	is_map_playable(t_map map)
 	dfs(map, y, x, visited);
 	if (check_char(visited, 'E') || check_char(visited, 'C'))
 	{
-		free_map(map);
-		error("Error: Invalid map, exit unreachable or coins uncollectible.\n");
+		error("Invalid map, exit unreachable or coins uncollectible.");
+		return (free_map(map), free_arr(visited), exit(EXIT_FAILURE));
 	}
 	free_arr(visited);
 }

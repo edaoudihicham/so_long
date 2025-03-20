@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdaoudi <hdaoudi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:56 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 07:01:48 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 21:52:58 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,23 @@ static int	open_file(char *filename)
 
 	ext = ft_strrchr(filename, '.');
 	if (ext == NULL)
+	{
 		error("the map should have .ber extention.");
+		exit(EXIT_FAILURE);
+	}
 	if (ft_strncmp(ext, ".ber", 4) || *(ext + 4) != '\0')
+	{
 		error("the map should have .ber extention.");
-	if ((ft_strlen(filename) == 4 && ft_strncmp(filename, ".ber", 4) == 0)
-		|| (*(ext - 1) == '/' && ft_strncmp(ext, ".ber", 4) == 0))
-		error("Hidden files are not valid.");
+		exit(EXIT_FAILURE);
+	}
+	if (ft_strncmp(filename, ".ber", 4) == 0 || *(ext - 1) == '/')
+	{
+		error("invalid extention");
+		exit(EXIT_FAILURE);
+	}
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		error("could open the map.");
+		return (error("could open the map."), exit(EXIT_FAILURE), 1);
 	return (fd);
 }
 
@@ -51,8 +59,8 @@ static char	*load_map_from_file(int fd)
 		{
 			free(tmp);
 			free(new_line);
-			get_next_line(-1);
-			error("Invalid map, Empty lines exist.");
+			return (get_next_line(-1), error("Invalid map, Empty lines exist."),
+				exit(EXIT_FAILURE), NULL);
 		}
 		free(tmp);
 		tmp = get_next_line(fd);
@@ -66,7 +74,10 @@ static t_map	create_map_from_string(char *line)
 
 	map.map = ft_split(line, '\n');
 	if (!map.map)
-		error("something wrong happened.");
+	{
+		error("something wrong happened, couldn't split str.");
+		exit(EXIT_FAILURE);
+	}
 	map.rows = 0;
 	while (map.map[map.rows])
 		map.rows++;
