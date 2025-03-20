@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:43:05 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 01:02:15 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 01:47:53 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	run_game(t_data data)
 	init_window(&data);
 	init_imgs(&data);
 	draw_tails(&data);
-	mlx_hook(data.win, KeyPress, KeyPressMask, handl_input, &data);
+	mlx_hook(data.win, KeyPress, KeyPressMask, handle_keys, &data);
 	mlx_hook(data.win, DestroyNotify, StructureNotifyMask, close_game, &data);
 	mlx_loop(data.mlx);
 }
@@ -39,6 +39,6 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		error("usage: ./so_long <MAP.ber>");
 	data.map = load_map(av[1]);
-	is_valid_map(data.map);
+	check_if_map_is_vaid(data.map);
 	run_game(data);
 }

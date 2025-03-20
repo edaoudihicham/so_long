@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:38 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/18 00:28:18 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 01:49:29 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,11 @@ static void	check_flags(t_map map)
 	if ((coin * player * exit) != 1)
 	{
 		free_map(map);
-		error("Invalid map. Only one P, at least one C, and only one E allowed.");
+		error("Invalid map: 1P, min 1C, and 1E allowed.");
 	}
 }
 
-void	is_valid_map(t_map map)
+void	check_if_map_is_vaid(t_map map)
 {
 	check_chars(map);
 	check_rectangle(map);

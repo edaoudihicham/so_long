@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:47 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 01:02:51 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 01:34:45 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	move_down(t_data *data)
 		data->p_x * 64, (data->p_y - 1) * 64);
 }
 
-int	handl_input(int key, t_data *data)
+int	handle_keys(int key, t_data *data)
 {
 	if (key == ESC_KEY)
 		close_game(data);

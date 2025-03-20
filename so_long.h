@@ -5,23 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 10:31:50 by hdaoudi            #+#    #+#             */
-/*   Updated: 2025/03/19 03:12:39 by hdaoudi          ###   ########.fr       */
+/*   Created: 2024/10/22 10:31:50 by hdaoudi           #+#    #+#             */
+/*   Updated: 2025/03/20 01:50:38 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
-# include <stdio.h>
-# include <fcntl.h>
 # include "./gnl/get_next_line.h"
 # include "libft/libft.h"
-# include <X11/keysym.h>
 # include <X11/X.h>
+# include <X11/keysym.h>
+# include <fcntl.h>
+# include <mlx.h>
 # include <stdio.h>
-enum e_keys
+
+enum		e_keys
 {
 	ESC_KEY = 65307,
 	UP_KEY = 65362,
@@ -41,7 +41,7 @@ typedef struct s_imgs
 	void	*wall;
 	void	*floor;
 	void	*exit;
-}	t_imgs;
+}			t_imgs;
 
 typedef struct s_map
 {
@@ -50,7 +50,7 @@ typedef struct s_map
 	int		rows;
 	int		exit_x;
 	int		exit_y;
-}	t_map;
+}			t_map;
 
 typedef struct s_data
 {
@@ -63,26 +63,26 @@ typedef struct s_data
 	int		moves_count;
 	int		coin_count;
 	int		coin_collected;
-}	t_data;
+}			t_data;
 
-void	free_map(t_map map);
-t_map	load_map(char *filename);
-void	is_valid_map(t_map map);
-void	is_map_beatable(t_map map);
-void	error(char *msg);
+void		free_map(t_map map);
+t_map		load_map(char *filename);
+void		check_if_map_is_vaid(t_map map);
+void		is_map_beatable(t_map map);
+void		error(char *msg);
 
-int		close_game(t_data *data);
-void	init_window(t_data *data);
-void	draw_tail(char taile, t_data *data, int x, int y);
-void	draw_tails(t_data *data);
-void	*create_img(t_data *data, char *path);
-void	init_imgs(t_data *data);
+int			close_game(t_data *data);
+void		init_window(t_data *data);
+void		draw_tail(char taile, t_data *data, int x, int y);
+void		draw_tails(t_data *data);
+void		*create_img(t_data *data, char *path);
+void		init_imgs(t_data *data);
 
-void	move_right(t_data *data);
-void	move_left(t_data *data);
-void	move_up(t_data *data);
-void	move_down(t_data *data);
-int		handl_input(int key, t_data *data);
-void	check_win(t_data *data);
+void		move_right(t_data *data);
+void		move_left(t_data *data);
+void		move_up(t_data *data);
+void		move_down(t_data *data);
+int			handle_keys(int key, t_data *data);
+void		check_win(t_data *data);
 
 #endif
