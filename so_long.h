@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 01:50:38 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/20 01:52:49 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 # include "./gnl/get_next_line.h"
 # include "libft/libft.h"
+# include <fcntl.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include <fcntl.h>
 # include <mlx.h>
-# include <stdio.h>
 
 enum		e_keys
 {
