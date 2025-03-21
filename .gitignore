@@ -1,5 +1,6 @@
-.vscode/settings.json
-.vscode
-*.o
-*.a
-so_long
+*
+!*.c
+!*.h
+!Makefile
+!maps/*.ber
+!textures/*.xpm
