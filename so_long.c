@@ -6,11 +6,11 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:43:05 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 21:32:20 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/21 01:12:48 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	check_win(t_data *data)
 {
@@ -19,7 +19,7 @@ void	check_win(t_data *data)
 		ft_putstr_fd("\nYou Won!\n", 1);
 		close_game(data);
 	}
-	ft_putstr_fd("\nYou have to collect all the coins first\n", 1);
+	ft_putstr_fd("\nYou have to collect all the coins first", 1);
 }
 
 void	run_game(t_data data)

@@ -7,9 +7,9 @@ CFLAGS= -Wall -Wextra -Werror -Ilibft
 LIBXFLAGS := -lmlx -lXext -lX11
 
 SRC = gnl/get_next_line.c gnl/get_next_line_utils.c \
-		so_long_source/so_long.c 	so_long_source/print_error_close_game.c so_long_source/parsing.c  \
-		so_long_source/map_validation.c  	so_long_source/map_validation_2.c\
-		so_long_source/mlx_game.c 		so_long_source/movement.c\
+		so_long.c 	print_error_close_game.c parsing.c  \
+		map_validation.c  	map_validation_2.c\
+		mlx_game.c 		movement.c\
 
 OBJ = $(SRC:.c=.o)
 

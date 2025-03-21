@@ -6,11 +6,11 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:38 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/20 21:55:23 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/21 00:52:58 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static void	check_for_alien_chars(t_map map)
 {
