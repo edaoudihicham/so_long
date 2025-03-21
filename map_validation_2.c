@@ -6,22 +6,22 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:41:38 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/21 00:52:58 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/21 03:39:44 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	dfs(t_map map, int y, int x, char **visited)
+static void	depth_first_check(t_map map, int y, int x, char **visited)
 {
 	if (x < 0 || x >= map.colums || y < 0 || y >= map.rows
 		|| map.map[y][x] == '1' || visited[y][x] == 'f')
 		return ;
 	visited[y][x] = 'f';
-	dfs(map, y + 1, x, visited);
-	dfs(map, y - 1, x, visited);
-	dfs(map, y, x + 1, visited);
-	dfs(map, y, x - 1, visited);
+	depth_first_check(map, y + 1, x, visited);
+	depth_first_check(map, y - 1, x, visited);
+	depth_first_check(map, y, x + 1, visited);
+	depth_first_check(map, y, x - 1, visited);
 }
 
 static char	**tmp_map(t_map map)
@@ -91,7 +91,7 @@ void	is_map_playable(t_map map)
 		y++;
 	}
 	visited = tmp_map(map);
-	dfs(map, y, x, visited);
+	depth_first_check(map, y, x, visited);
 	if (check_char(visited, 'E') || check_char(visited, 'C'))
 	{
 		error("Invalid map, exit unreachable or coins uncollectible.");

@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:38 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/21 00:52:58 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/21 03:11:26 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	check_walls(t_map map)
 		if (map.map[0][i] != '1' || map.map[map.rows - 1][i] != '1')
 		{
 			free_map(map);
-			error("Ivalid map, check your walls.");
+			error("Invalid map, check your walls.");
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -85,24 +85,22 @@ static void	check_walls(t_map map)
 
 static void	check_flags(t_map map)
 {
-	static int	coin;
-	int			player;
-	int			door;
-	int			x;
-
+	int (x), (y), (door), (player), (coin) = 0;
 	door = 0;
 	player = 0;
-	while (--map.rows)
+	y = map.rows;
+	while (y--)
 	{
 		x = 0;
-		while (*(map.map[map.rows] + x++))
+		while (map.map[y][x])
 		{
-			if (*(map.map[map.rows] + x - 1) == 'C')
+			if (map.map[y][x] == 'C')
 				coin = 1;
-			else if (*(map.map[map.rows] + x - 1) == 'P')
+			else if (map.map[y][x] == 'P')
 				player++;
-			else if (*(map.map[map.rows] + x - 1) == 'E')
+			else if (map.map[y][x] == 'E')
 				door++;
+			x++;
 		}
 	}
 	if ((coin * player * door) != 1)

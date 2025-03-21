@@ -6,7 +6,7 @@
 /*   By: hdaoudi <hdaoudi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:42:47 by hdaoudi           #+#    #+#             */
-/*   Updated: 2025/03/21 01:08:09 by hdaoudi          ###   ########.fr       */
+/*   Updated: 2025/03/21 01:38:02 by hdaoudi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	move_right(t_data *data)
 {
 	if (data->map.map[data->player_y][data->player_x + 1] == '1')
-		return;
+		return ;
 	data->player_x++;
 	data->moves_count++;
 	if (data->map.map[data->player_y][data->player_x] == 'C')
