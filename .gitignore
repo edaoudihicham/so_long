@@ -1,0 +1,5 @@
+.vscode
+.vscode/settings.json
+*.o
+*.a
+so_long
